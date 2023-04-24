@@ -3,7 +3,7 @@
   <%= image_tag user.get_profile_image(100,100) %>
 
   <p><strong>name</strong>:<%= user.name %></p>
-  <p><strong>introduction</strong></p>
+  <p><strong>introduction</strong>:<%= user.introduction %></p>
   <%= link_to "edit", edit_user_path(current_user) %>
 </div>
 

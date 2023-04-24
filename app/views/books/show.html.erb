@@ -7,7 +7,7 @@
       <td><span><%= link_to @book.title, book_path(@book) %></span></td>
       <td><span><%= @book.body %></span></td>
       <td><span><%= link_to 'Edit', edit_book_path(@book) %></span></td>
-      <td><span><%= link_to 'Destroy' %></span></td>
+      <td><span><%= link_to 'Destroy', book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？"  %></span></td>
     </tr>
   </table>
 </div>

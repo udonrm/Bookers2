@@ -1,11 +1,18 @@
-<div class = 'user_info'>
-  <h1>User info</h1>
-  
-  <p><strong>name</strong>:<%= @user.name %></p>
-  <p><strong>introduction</strong></p>
-  <%= link_to "edit", edit_user_path(current_user) %>
-</div>
-
-<div class = 'new_book'>
-  <h1>New book</h1>
+<%= render 'book', user: current_user %>
+<div class = 'books'>
+  <h1>Books</h1>
+  <table>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+          <% @books.each do |book| %>
+          <tr>
+          <td><span><%= image_tag book.user.get_profile_image(100,100) %></span></td>
+          <td><span><%= link_to book.title, book_path(book) %></span></td>
+          <td><span><%= book.body %></span></td>
+          </tr>
+          <% end %>
+    </table>
 </div>

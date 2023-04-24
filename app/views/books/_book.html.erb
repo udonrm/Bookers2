@@ -1,0 +1,19 @@
+<div class = 'user_info'>
+  <h1>User info</h1>
+  <%= image_tag user.get_profile_image(100,100) %>
+
+  <p><strong>name</strong>:<%= user.name %></p>
+  <p><strong>introduction</strong></p>
+  <%= link_to "edit", edit_user_path(current_user) %>
+</div>
+
+<div class = 'new_book'>
+  <h1>New book</h1>
+  <%= form_with model: Book.new do |f| %>
+  <p>Title</p>
+    <%= f.text_field :title %><br>
+  <p>Opinion</p>
+    <%= f.text_area :body %><br>
+    <%= f.submit 'Create Book' %>
+  <% end %>
+</div>

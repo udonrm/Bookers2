@@ -2,9 +2,26 @@
   <h1>User info</h1>
   <%= image_tag user.get_profile_image(100,100) %>
 
-  <p><strong>name</strong>:<%= user.name %></p>
-  <p><strong>introduction</strong>:<%= user.introduction %></p>
-  <%= link_to "edit", edit_user_path(current_user) %>
+<table class="table table-striped">
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
+
+  <% if user == current_user %>
+    <%= link_to edit_user_path(user), class: "btn btn-outline-primary" do %>
+      <i class = "fas fa-user-cog"></i>
+    <% end %>
+  <% else %>
+    <%= link_to edit_user_path(user),class: "btn btn-outline-primary" do %>
+      <i class = "fas fa-user-cog"></i>
+    <% end %>
+  <% end %>
 </div>
 
 <div class = 'new_book'>
@@ -14,6 +31,6 @@
     <%= f.text_field :title %><br>
   <p>Opinion</p>
     <%= f.text_area :body %><br>
-    <%= f.submit 'Create Book' %>
+    <%= f.submit 'Create Book', class: "btn btn-outline-primary" %>
   <% end %>
 </div>

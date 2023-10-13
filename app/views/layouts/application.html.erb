@@ -67,6 +67,10 @@
       </ul>
     </div>
     </nav>
+    <%= search_form_for @q, url: books_path do |f| %>
+      <%= f.search_field :title_cont %>
+      <%= f.submit "検索" %>
+    <% end %>
     </header>
 
     <% flash.each do |key, value| %>
